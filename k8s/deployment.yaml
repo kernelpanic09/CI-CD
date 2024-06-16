@@ -35,10 +35,11 @@ kind: Service
 metadata:
   name: example-cicd-service
 spec:
+  type: NodePort
   selector:
     app: example-cicd-pipeline
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: LoadBalancer
+      nodePort: 30001
