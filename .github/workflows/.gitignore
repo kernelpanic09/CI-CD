@@ -1,0 +1,7 @@
+# Ignore reports directory
+reports/
+
+# Ignore specific report files
+coverage.xml
+security-scan.txt
+test-results.xml
