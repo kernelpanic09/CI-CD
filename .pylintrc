@@ -1,0 +1,11 @@
+[MESSAGES CONTROL]
+# Disable the following messages:
+disable=C0114,C0116,W0621
+
+[REPORTS]
+# Only show the errors and warnings summary
+output-format=parseable
+
+[MASTER]
+# Set the maximum number of jobs to 0 (auto)
+jobs=0

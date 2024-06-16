@@ -1,3 +1,7 @@
+"""
+Tests for the Flask application.
+"""
+
 import pytest
 from app import app
 

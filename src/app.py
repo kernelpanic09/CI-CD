@@ -1,3 +1,7 @@
+"""
+Flask application for CI/CD pipeline example.
+"""
+
 from flask import Flask, jsonify
 
 app = Flask(__name__)
