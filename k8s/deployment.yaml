@@ -16,17 +16,17 @@ spec:
       - name: example-cicd-pipeline
         image: example-cicd-pipeline:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 80
         readinessProbe:
           httpGet:
             path: /health
-            port: 5000
+            port: 80
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
           httpGet:
             path: /health
-            port: 5000
+            port: 80
           initialDelaySeconds: 15
           periodSeconds: 20
 ---
@@ -39,6 +39,6 @@ spec:
     app: example-cicd-pipeline
   ports:
     - protocol: TCP
-      port: 5000
-      targetPort: 5000
+      port: 80
+      targetPort: 80
   type: LoadBalancer
