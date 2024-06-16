@@ -1,3 +1,14 @@
+### GitHub Actions Status
+
+![CI/CD Pipeline](https://github.com/kernelpanic09/CI-CD/workflows/CI/CD%20Pipeline/badge.svg)
+
+### Repository Statistics
+
+![GitHub repo size](https://img.shields.io/github/repo-size/kernelpanic09/CI-CD)
+![GitHub last commit](https://img.shields.io/github/last-commit/kernelpanic09/CI-CD)
+![GitHub issues](https://img.shields.io/github/issues/kernelpanic09/CI-CD)
+
+
 # Example CI/CD Pipeline
 
 This repository demonstrates a comprehensive CI/CD pipeline using [GitHub Actions](https://github.com/features/actions). The pipeline automates the process of integrating code changes, running tests, and deploying a simple Flask application to a Kubernetes cluster. It is designed to ensure that every change to the codebase is automatically built, tested, and deployed, making the software development process more efficient and reliable.
@@ -163,15 +174,3 @@ Contributions are welcome! Please open an issue or submit a pull request. For ma
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## GitHub Widgets
-
-### GitHub Actions Status
-
-![CI/CD Pipeline](https://github.com/your-username/example-cicd-pipeline/workflows/CI/CD%20Pipeline/badge.svg)
-
-### Repository Statistics
-
-![GitHub repo size](https://img.shields.io/github/repo-size/your-username/example-cicd-pipeline)
-![GitHub last commit](https://img.shields.io/github/last-commit/your-username/example-cicd-pipeline)
-![GitHub issues](https://img.shields.io/github/issues/your-username/example-cicd-pipeline)
