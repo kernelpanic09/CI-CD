@@ -1,6 +1,6 @@
 # Example CI/CD Pipeline
 
-This repository demonstrates a basic CI/CD pipeline using [GitHub Actions](https://github.com/features/actions). The pipeline includes stages for building, testing, and deploying a simple application.
+This repository demonstrates a comprehensive CI/CD pipeline using [GitHub Actions](https://github.com/features/actions). The pipeline includes stages for building, testing, and deploying a simple Flask application.
 
 ## Table of Contents
 
@@ -8,6 +8,7 @@ This repository demonstrates a basic CI/CD pipeline using [GitHub Actions](https
 - [Technologies Used](#technologies-used)
 - [Pipeline Stages](#pipeline-stages)
 - [Getting Started](#getting-started)
+- [Directory Structure](#directory-structure)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -19,14 +20,18 @@ The CI/CD pipeline automates the process of integrating code changes, running te
 
 - **CI/CD Tool**: GitHub Actions
 - **Programming Language**: Python
+- **Framework**: Flask
 - **Testing Framework**: Pytest
-- **Deployment**: Docker, Kubernetes (Minikube)
+- **Containerization**: Docker
+- **Orchestration**: Kubernetes (Minikube)
+- **Linting**: Flake8
 
 ## Pipeline Stages
 
 1. **Build**: Compiles the application code and creates a Docker image.
 2. **Test**: Runs automated tests to ensure code quality.
-3. **Deploy**: Deploys the Docker image to a Kubernetes cluster.
+3. **Lint**: Checks code for styling and potential errors.
+4. **Deploy**: Deploys the Docker image to a Kubernetes cluster.
 
 ## Getting Started
 
@@ -39,7 +44,7 @@ To get started with this project, follow these steps:
     ```
 
 2. **Set up the environment**:
-    - Ensure you have Docker and Minikube installed.
+    - Ensure you have Docker, Minikube, and kubectl installed.
     - Start Minikube:
       ```bash
       minikube start
@@ -48,10 +53,18 @@ To get started with this project, follow these steps:
 3. **Run the pipeline**:
     - Push changes to the `main` branch to trigger the GitHub Actions pipeline.
 
-## Contributing
+## Directory Structure
 
-Contributions are welcome! Please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+example-cicd-pipeline/
+├── .github/
+│ └── workflows/
+│ └── ci-cd.yml
+├── k8s/
+│ └── deployment.yaml
+├── src/
+│ ├── app.py
+│ ├── tests/
+│ │ └── test_app.py
+│ └── requirements.txt
+├── Dockerfile
+└── README.md
