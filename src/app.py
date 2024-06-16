@@ -8,11 +8,6 @@ def home():
     """Render the home page."""
     return render_template('index.html')
 
-@app.route('/')
-def hello_world():
-    """Return a welcome message."""
-    return jsonify(message='Hello, CI/CD!')
-
 @app.route('/health')
 def health():
     """Return the health status."""
