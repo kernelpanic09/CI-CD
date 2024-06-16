@@ -5,18 +5,21 @@ FROM python:3.8-slim as builder
 WORKDIR /app
 
 # Copy the requirements file
-COPY requirements.txt .
+COPY src/requirements.txt .
 
 # Install build dependencies
 RUN python -m pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
 # Copy the application source code
-COPY . .
+COPY src/ .
+
+# Set the PYTHONPATH to include the /app directory
+ENV PYTHONPATH /app
 
 # Run tests and linting
 RUN pip install pytest flake8 pytest-cov \
-    && pytest --junitxml=reports/test-results.xml --cov=src --cov-report=xml \
+    && pytest --junitxml=reports/test-results.xml --cov=. --cov-report=xml \
     && flake8 . --exit-zero --max-line-length=88 --statistics
 
 # Stage 2: Final Stage
