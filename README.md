@@ -54,7 +54,7 @@ To get started with this project, follow these steps:
     - Push changes to the `main` branch to trigger the GitHub Actions pipeline.
 
 ## Directory Structure
-
+```
 example-cicd-pipeline/
 ├── .github/
 │ └── workflows/
@@ -68,3 +68,4 @@ example-cicd-pipeline/
 │ └── requirements.txt
 ├── Dockerfile
 └── README.md
+```
