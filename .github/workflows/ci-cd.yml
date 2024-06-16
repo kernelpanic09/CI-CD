@@ -39,6 +39,11 @@ jobs:
         pip install flake8
         flake8 src --exit-zero --max-line-length=88 --statistics
 
+    - name: Static code analysis
+      run: |
+        pip install pylint
+        pylint src
+
     - name: Build Docker image
       run: docker build -t example-cicd-pipeline .
 
@@ -52,7 +57,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: coverage-report
-        path: coverage.xml
+        path: reports/coverage.xml
 
   security:
     runs-on: ubuntu-latest
@@ -79,11 +84,22 @@ jobs:
         pip install bandit
         bandit -r src/ -o reports/security-scan.txt --exit-zero
 
+    - name: Dependency vulnerability scan
+      run: |
+        pip install safety
+        safety check -r src/requirements.txt --full-report > reports/dependency-vulnerabilities.txt
+
     - name: Upload security scan report
       uses: actions/upload-artifact@v2
       with:
         name: security-scan
         path: reports/security-scan.txt
+
+    - name: Upload dependency vulnerability report
+      uses: actions/upload-artifact@v2
+      with:
+        name: dependency-vulnerabilities
+        path: reports/dependency-vulnerabilities.txt
 
   deploy:
     runs-on: ubuntu-latest

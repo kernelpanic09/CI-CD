@@ -8,7 +8,6 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/kernelpanic09/CI-CD)
 ![GitHub issues](https://img.shields.io/github/issues/kernelpanic09/CI-CD)
 
-
 # Example CI/CD Pipeline
 
 This repository demonstrates a comprehensive CI/CD pipeline using [GitHub Actions](https://github.com/features/actions). The pipeline automates the process of integrating code changes, running tests, and deploying a simple Flask application to a Kubernetes cluster. It is designed to ensure that every change to the codebase is automatically built, tested, and deployed, making the software development process more efficient and reliable.
@@ -39,6 +38,8 @@ This project showcases a complete CI/CD pipeline implementation using GitHub Act
 - **Run Tests Automatically**: All unit tests are executed with every code change, helping to catch bugs and regressions early.
 - **Perform Code Linting**: Code style and quality checks are performed to maintain a clean and readable codebase.
 - **Deploy Continuously**: Successful builds are automatically deployed to a Kubernetes cluster, ensuring that the latest version of the application is always available in the staging environment.
+- **Static Code Analysis**: Code is analyzed using `pylint` to enforce coding standards and detect potential issues.
+- **Vulnerability Scanning**: Dependencies are scanned for known vulnerabilities using `safety`.
 
 This CI/CD pipeline serves as an example for developers looking to implement a robust and scalable DevOps workflow. It covers essential DevOps practices, including continuous integration, continuous deployment, automated testing, and security scanning.
 
@@ -51,7 +52,8 @@ This CI/CD pipeline serves as an example for developers looking to implement a r
 - **Containerization**: Docker
 - **Orchestration**: Kubernetes (Minikube)
 - **Linting**: Flake8
-- **Security Scanning**: Bandit
+- **Static Code Analysis**: Pylint
+- **Security Scanning**: Bandit, Safety
 
 ## Pipeline Stages
 
@@ -68,6 +70,14 @@ The test stage runs automated tests to ensure the application code is functionin
 ### Lint Stage
 
 The lint stage checks the code for stylistic errors and potential bugs using Flake8. This stage ensures that the code adheres to the defined coding standards and best practices.
+
+### Static Code Analysis Stage
+
+The static code analysis stage uses `pylint` to analyze the code for potential issues and enforce coding standards.
+
+### Security Scanning Stage
+
+The security scanning stage uses `bandit` to scan the code for security vulnerabilities and `safety` to check dependencies for known vulnerabilities.
 
 ### Deploy Stage
 
@@ -140,9 +150,6 @@ example-cicd-pipeline/
 ├── Dockerfile
 └── README.md
 ```
-
-
-
 
 
 ## Troubleshooting
