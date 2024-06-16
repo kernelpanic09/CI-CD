@@ -12,11 +12,11 @@ def client():
     with app.test_client() as client:
         yield client
 
-def test_hello_world(client):
-    """Test the hello_world endpoint."""
+def test_home(client):
+    """Test the home page."""
     response = client.get('/')
     assert response.status_code == 200
-    assert response.json == {'message': 'Hello, CI/CD!'}
+    assert b'Welcome to the Example CI/CD Pipeline App' in response.data
 
 def test_health(client):
     """Test the health endpoint."""
