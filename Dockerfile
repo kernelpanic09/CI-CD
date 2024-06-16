@@ -5,19 +5,19 @@ FROM python:3.8-slim as builder
 WORKDIR /app
 
 # Copy the requirements file
-COPY src/requirements.txt .
+COPY requirements.txt .
 
 # Install build dependencies
 RUN python -m pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
 # Copy the application source code
-COPY src/ .
+COPY . .
 
 # Run tests and linting
 RUN pip install pytest flake8 pytest-cov \
     && pytest --junitxml=reports/test-results.xml --cov=src --cov-report=xml \
-    && flake8 src/ --exit-zero --max-line-length=88 --statistics
+    && flake8 . --exit-zero --max-line-length=88 --statistics
 
 # Stage 2: Final Stage
 FROM python:3.8-slim
