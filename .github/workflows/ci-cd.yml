@@ -81,15 +81,15 @@ jobs:
     - name: Create reports directory
       run: mkdir -p reports
 
-    - name: Run security scan
+    - name: Run security scan with Bandit
       run: |
         pip install bandit
         bandit -r src/ -o reports/security-scan.txt --exit-zero
 
-    - name: Dependency vulnerability scan
+    - name: Run dependency vulnerability scan with Safety
       run: |
         pip install safety
-        safety check -r src/requirements.txt --full-report > reports/dependency-vulnerabilities.txt
+        safety check -r src/requirements.txt --full-report --output reports/dependency-vulnerabilities.txt --exit-zero
 
     - name: Upload security scan report
       uses: actions/upload-artifact@v2
