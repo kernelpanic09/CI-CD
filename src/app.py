@@ -1,10 +1,12 @@
-"""
-Flask application for CI/CD pipeline example.
-"""
-
-from flask import Flask, jsonify
+# src/app.py
+from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
+
+@app.route('/')
+def home():
+    """Render the home page."""
+    return render_template('index.html')
 
 @app.route('/')
 def hello_world():
