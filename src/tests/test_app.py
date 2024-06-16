@@ -16,3 +16,12 @@ def test_health(client):
     response = client.get('/health')
     assert response.status_code == 200
     assert response.json == {'status': 'UP'}
+
+def test_status(client):
+    response = client.get('/status')
+    assert response.status_code == 200
+    assert response.json == {
+        'service': 'Example CI/CD Pipeline',
+        'status': 'Running',
+        'version': '1.0'
+    }

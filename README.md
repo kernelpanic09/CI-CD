@@ -123,6 +123,23 @@ example-cicd-pipeline/
 
 
 
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Docker Build Fails**:
+    - Ensure Docker is installed and running.
+    - Check the Dockerfile for syntax errors or missing dependencies.
+
+2. **Minikube Start Fails**:
+    - Ensure Minikube is installed and correctly configured.
+    - Check the Minikube logs for more details.
+
+3. **Pipeline Fails**:
+    - Check the GitHub Actions logs for detailed error messages.
+    - Ensure all required files are committed and pushed to the repository.
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
